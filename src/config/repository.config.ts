@@ -1,11 +1,25 @@
-import type { RepositoryConfig } from "@/types/site.types";
+import type {
+  RepositoryConfig,
+} from "@/types/site.types";
 
 export const repositoryConfig: RepositoryConfig = {
-  name:        "{{REPOSITORY_NAME}}",
-  description: "{{REPOSITORY_DESCRIPTION}}",
-  packageName: "{{PACKAGE_NAME}}",
-  appId:       "{{APP_ID}}",
-  author:      "{{AUTHOR}}",
-  version:     "{{VERSION}}",
-  license:     "{{LICENSE}}",
+  name: "taller-artesanal-artegestion",
+
+  description:
+    "Sitio web oficial del Taller Artesanal ArteGestión.",
+
+  packageName:
+    "taller-artesanal-artegestion",
+
+  appId:
+    "com.artegestion.taller",
+
+  author:
+    "SatCore Solutions",
+
+  version:
+    "1.0.0",
+
+  license:
+    "MIT",
 };
