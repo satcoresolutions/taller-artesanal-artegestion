@@ -1,0 +1,30 @@
+/*
+|------------------------------------------------
+| EFFECT UTILITIES
+|------------------------------------------------
+*/
+
+.glow-primary {
+  box-shadow:
+    var(--shadow-glow);
+}
+
+.glow-soft {
+  box-shadow:
+    0 0 20px
+    color-mix(
+      in srgb,
+      var(--primary) 25%,
+      transparent
+    );
+}
+
+.glow-intense {
+  box-shadow:
+    0 0 60px
+    color-mix(
+      in srgb,
+      var(--primary) 40%,
+      transparent
+    );
+}

@@ -1,0 +1,58 @@
+/*
+|------------------------------------------------
+| TAILWIND THEME TOKENS
+|------------------------------------------------
+*/
+
+@theme inline {
+  /*
+   |------------------------------------------------
+   | COLORS
+   |------------------------------------------------
+   */
+
+  --color-primary:
+    var(--primary);
+
+  --color-secondary:
+    var(--secondary);
+
+  --color-accent:
+    var(--accent);
+
+  --color-tertiary:
+    var(--tertiary);
+
+  --color-quaternary:
+    var(--quaternary);
+
+  --color-background:
+    var(--background);
+
+  --color-surface:
+    var(--surface);
+
+  --color-surface-secondary:
+    var(--surface-secondary);
+
+  --color-text-primary:
+    var(--text-primary);
+
+  --color-text-secondary:
+    var(--text-secondary);
+
+  --color-text-muted:
+    var(--text-muted);
+
+  --color-success:
+    var(--success);
+
+  --color-warning:
+    var(--warning);
+
+  --color-danger:
+    var(--danger);
+
+  --color-info:
+    var(--info);
+}

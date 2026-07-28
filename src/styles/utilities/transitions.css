@@ -1,0 +1,20 @@
+/*
+|------------------------------------------------
+| TRANSITION UTILITIES
+|------------------------------------------------
+*/
+
+.transition-fast {
+  transition:
+    all var(--transition-fast);
+}
+
+.transition-default {
+  transition:
+    all var(--transition-normal);
+}
+
+.transition-premium {
+  transition:
+    all var(--transition-slow);
+}

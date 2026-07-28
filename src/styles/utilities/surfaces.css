@@ -1,0 +1,45 @@
+/*
+|------------------------------------------------
+| SURFACE UTILITIES
+|------------------------------------------------
+*/
+
+.surface-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  border:
+    1px solid var(--glass-border);
+
+  backdrop-filter:
+    blur(20px);
+
+  border-radius:
+    var(--radius-card-size);
+}
+
+.surface-panel {
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--glass-border);
+
+  border-radius:
+    var(--radius-container-size);
+}
+
+.surface-elevated {
+  background:
+    var(--surface-secondary);
+
+  box-shadow:
+    var(--shadow-md);
+
+  border-radius:
+    var(--radius-card-size);
+}
