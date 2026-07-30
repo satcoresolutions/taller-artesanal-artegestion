@@ -158,6 +158,8 @@ export interface ProductData {
 
   canReproduce: boolean;
 
+  craftYear?: number;
+
   /* ---------------------------------------------------------------------- */
   /* Visibility                                                             */
   /* ---------------------------------------------------------------------- */
@@ -196,7 +198,7 @@ export interface ProductData {
 
   category: ProductCategoryData | null;
 
- section: ProductSectionData | null;
+  section: ProductSectionData | null;
 
   relatedProducts: ProductData[];
 

@@ -65,36 +65,6 @@ export default function DetailsHeader({
       gap-6
     "
       >
-
-        {product.category && (
-
-          <span
-            className="
-          inline-flex
-          w-fit
-          rounded-full
-          px-4
-          py-2
-          text-xs
-          font-medium
-          uppercase
-          tracking-[0.12em]
-        "
-            style={{
-              background:
-                "color-mix(in srgb, var(--accent) 10%, transparent)",
-
-              color:
-                "var(--primary)",
-            }}
-          >
-
-            {product.category.title}
-
-          </span>
-
-        )}
-
         <div
           className="
         flex
@@ -145,6 +115,36 @@ export default function DetailsHeader({
               )}
 
             </div>
+            <div className="py-5">
+              {product.category && (
+
+                <span
+                  className="
+          inline-flex
+          w-fit
+          rounded-full
+          px-4
+          py-2
+          text-xs
+          font-medium
+          uppercase
+          tracking-[0.12em]
+        "
+                  style={{
+                    background:
+                      "color-mix(in srgb, var(--accent) 10%, transparent)",
+
+                    color:
+                      "var(--primary)",
+                  }}
+                >
+
+                  {product.category.title}
+
+                </span>
+
+              )}
+            </div>
             <div
               className="
         flex
@@ -158,7 +158,6 @@ export default function DetailsHeader({
                   "var(--color-text-muted)",
               }}
             >
-
               {product.sku && (
 
                 <span>
@@ -288,6 +287,23 @@ export default function DetailsHeader({
                     }}
                   >
                     {content.productionDays}: {product.productionDays} {content.days}
+                  </span>
+                </div>
+                <div
+                  className="
+    flex
+    items-center
+    gap-2
+  "
+                >
+                  <span>🗓️</span>
+
+                  <span
+                    style={{
+                      color: "var(--color-text-secondary)",
+                    }}
+                  >
+                    {content.craftYear}: {product.craftYear}
                   </span>
                 </div>
 

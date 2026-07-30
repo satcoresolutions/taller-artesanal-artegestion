@@ -44,6 +44,8 @@ export function mapProduct(
             data.barcode
             ?? "",
 
+        craftYear:
+            data.craftYear,
 
         slug:
             data.slug,

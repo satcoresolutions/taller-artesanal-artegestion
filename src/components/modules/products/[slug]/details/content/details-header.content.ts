@@ -4,6 +4,8 @@ export const detailsHeaderContent = {
 
     code: "Code",
 
+    craftYear: "Year of Creation",
+
     availability: "Availability",
 
     price: "Price",
@@ -36,6 +38,8 @@ export const detailsHeaderContent = {
 
     code: "Código",
 
+    craftYear: "Año de elaboración",
+
     availability: "Estado",
 
     price: "Precio",
@@ -67,6 +71,8 @@ export const detailsHeaderContent = {
     sku: "SKU",
 
     code: "Código",
+
+    craftYear: "Ano de fabricação",
 
     availability: "Disponibilidade",
 

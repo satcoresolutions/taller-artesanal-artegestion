@@ -17,6 +17,8 @@ import MaterialOverviewEmpty
 
 export default function MaterialOverview() {
 
+
+
   const {
     selectedMaterial,
   } = useMaterialsCatalog();
@@ -27,15 +29,21 @@ export default function MaterialOverview() {
 
   }
 
-  console.log(
-    "Cover:",
-    selectedMaterial.cover,
-  );
+  const description =
 
-  console.log(
-    "URL:",
-    selectedMaterial.cover?.url,
-  );
+    Array.isArray(selectedMaterial.description)
+
+      ? selectedMaterial.description
+        .flatMap((block: any) =>
+
+          block.children?.map(
+            (child: any) => child.text,
+          ) ?? [],
+
+        )
+        .join(" ")
+
+      : "";
 
   return (
 
@@ -121,18 +129,21 @@ export default function MaterialOverview() {
 
             )}
 
-            <div
-              className="
-                leading-8
-                text-text-muted
-              "
-            >
+            {description && (
 
-              {JSON.stringify(
-                selectedMaterial.description,
-              )}
+              <p
+                className="
+      leading-8
+      text-text-muted
+      py-2
+    "
+              >
 
-            </div>
+                {description}
+
+              </p>
+
+            )}
 
           </header>
 
