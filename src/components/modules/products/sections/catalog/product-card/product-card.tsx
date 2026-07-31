@@ -73,14 +73,14 @@ export default function ProductCard({
 
           <Image
             fill
-            src={getStrapiMedia(product.cover.url)}
+            src={product.cover.url}
             alt={product.cover.alternativeText ?? product.title}
             className="
-    object-cover
-    transition-transform
-    duration-500
-    hover:scale-105
-  "
+      object-cover
+      transition-transform
+      duration-500
+      hover:scale-105
+    "
           />
 
         )}
