@@ -27,6 +27,15 @@ export async function getProducts(
           populate:
             POPULATE.product,
 
+          pagination: {
+
+            page: 1,
+
+            pageSize:
+              1000,
+
+          },
+
         }),
       },
     );
