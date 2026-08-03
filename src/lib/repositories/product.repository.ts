@@ -25,7 +25,7 @@ export async function getProducts(
           locale,
 
           populate:
-            POPULATE.product,
+            POPULATE.productCard,
 
           pagination: {
 
@@ -68,7 +68,7 @@ export async function getProductBySlug(
           },
 
           populate:
-            POPULATE.product,
+            POPULATE.productDetail,
 
         }),
       },
@@ -102,7 +102,7 @@ export async function getProductByDocumentId(
           },
 
           populate:
-            POPULATE.product,
+            POPULATE.productDetail
 
         }),
       },
