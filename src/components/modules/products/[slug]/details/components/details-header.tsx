@@ -51,7 +51,7 @@ export default function DetailsHeader({
   return (
 
     <Card
-      variant="outlined"
+      variant="premium"
       className="
     p-8
     md:p-10
@@ -82,17 +82,21 @@ export default function DetailsHeader({
             <div
               className="
           flex-1
+          text-center
         "
             >
 
               <h1
                 className="
-            text-balance
-          "
+    text-balance
+    font-semibold
+  "
+                style={{
+                  fontSize: "clamp(1.6rem, 3vw, 2.6rem)",
+                  lineHeight: "1.15",
+                }}
               >
-
                 {product.title}
-
               </h1>
 
               {product.subtitle && (
@@ -155,18 +159,9 @@ export default function DetailsHeader({
       "
               style={{
                 color:
-                  "var(--color-text-muted)",
+                  "var(--color-text-primary)",
               }}
             >
-              {product.sku && (
-
-                <span>
-
-                  <strong>{content.sku}:</strong> {product.sku}
-
-                </span>
-
-              )}
 
               {product.code && (
 
@@ -209,7 +204,7 @@ export default function DetailsHeader({
         tracking-[0.2em]
       "
                 style={{
-                  color: "var(--color-text-muted)",
+                  color: "var(--color-text-secondary)",
                 }}
               >
                 {content.price}

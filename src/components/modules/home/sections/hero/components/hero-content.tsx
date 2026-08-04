@@ -6,14 +6,13 @@ import HeroBadge
 import HeroActions
   from "./hero-actions";
 
-import { heroContent }
-  from "../content/hero.content";
+import {
+  heroContent,
+} from "../content/hero.content";
 
-import { ctaContent }
-  from "@/i18n/cta.content";
-
-import { useLanguage }
-  from "@/hooks/use-language";
+import {
+  useLanguage,
+} from "@/hooks/use-language";
 
 export default function HeroContent() {
   const lang =
@@ -21,9 +20,6 @@ export default function HeroContent() {
 
   const content =
     heroContent[lang];
-
-  const cta =
-    ctaContent[lang].hero;
 
   return (
     <div
@@ -54,7 +50,7 @@ export default function HeroContent() {
         "
         style={{
           color:
-            "var(--tertiary)",
+            "var(--text-muted)",
         }}
       >
         {content.description}
@@ -62,11 +58,11 @@ export default function HeroContent() {
 
       <div
         className="
-    mt-8
-    flex
-    flex-wrap
-    gap-3
-  "
+          mt-8
+          flex
+          flex-wrap
+          gap-3
+        "
       >
         {
           content.features.map(
@@ -74,14 +70,14 @@ export default function HeroContent() {
               <span
                 key={feature}
                 className="
-            inline-flex
-            items-center
-            gap-2
-            px-4
-            py-2
-            text-sm
-            font-medium
-          "
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-4
+                  py-2
+                  text-sm
+                  font-medium
+                "
                 style={{
                   borderRadius:
                     "var(--radius-badge)",
@@ -113,14 +109,12 @@ export default function HeroContent() {
         "
       >
         <HeroActions
-          primary={{
-            label:
-              cta.primaryAction.label,
-          }}
-          secondary={{
-            label:
-              cta.secondaryAction.label,
-          }}
+          primaryAction={
+            content.primaryAction
+          }
+          secondaryAction={
+            content.secondaryAction
+          }
         />
       </div>
     </div>

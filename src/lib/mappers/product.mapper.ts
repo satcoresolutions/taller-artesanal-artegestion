@@ -2,6 +2,10 @@ import type {
     ProductData,
 } from "@/types/product.types";
 
+import type {
+    ProductVariant,
+} from "@/types/product.types";
+
 import {
     mapMedia,
 } from "./media.mapper";
@@ -18,7 +22,8 @@ import {
 export function mapProduct(
     data: any,
 ): ProductData {
-
+    console.log("Producto:", data.title);
+    console.log("Variants:", data.variants);
 
     return {
 
@@ -68,6 +73,9 @@ export function mapProduct(
         description:
             data.description
             ?? null,
+
+        variants:
+            data.variants,
 
 
         cover:

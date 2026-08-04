@@ -18,15 +18,14 @@ export default async function Catalog() {
 
   return (
 
-    <Section id="catalog">
+    <Section id="catalog" className="px-5">
 
-      <Container>
+  
 
         <CatalogClient
           products={products}
         />
 
-      </Container>
 
     </Section>
 

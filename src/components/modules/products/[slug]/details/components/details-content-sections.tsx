@@ -72,7 +72,7 @@ export default function DetailsContentSections({
     return (
 
         <Card
-            variant="outlined"
+            variant="featured"
             className="
         p-8
       "
@@ -88,17 +88,17 @@ export default function DetailsContentSections({
 
                 <div>
 
-                    <h2>
+                    <h3>
 
                         {content.title}
 
-                    </h2>
+                    </h3>
 
                     <p
                         className="mt-2"
                         style={{
                             color:
-                                "var(--color-text-muted)",
+                                "var(--color-text-secondary)",
                         }}
                     >
 
@@ -122,11 +122,11 @@ export default function DetailsContentSections({
 
                             {section.title && (
 
-                                <h3>
+                                <h4>
 
                                     {section.title}
 
-                                </h3>
+                                </h4>
 
                             )}
 

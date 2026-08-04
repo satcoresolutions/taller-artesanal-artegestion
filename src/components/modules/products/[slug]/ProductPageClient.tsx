@@ -8,6 +8,9 @@ import {
 import ProductHero
   from "@/components/modules/products/[slug]/hero";
 
+import ProductVariants
+  from "./variants/ProductVariants";
+
 import ProductDetails
   from "@/components/modules/products/[slug]/details";
 
@@ -20,16 +23,21 @@ import {
 
 import type {
   ProductData,
+  ProductVariant,
 } from "@/types/product.types";
 
 interface ProductPageClientProps {
+
   initialProduct: ProductData;
+
   slug: string;
+
 }
 
 export default function ProductPageClient({
+
   initialProduct,
-  slug,
+
 }: ProductPageClientProps) {
 
   const language =
@@ -43,6 +51,16 @@ export default function ProductPageClient({
 
   ] = useState<ProductData>(
     initialProduct,
+  );
+
+  const [
+
+    selectedVariant,
+
+    setSelectedVariant,
+
+  ] = useState<ProductVariant | null>(
+    null,
   );
 
   useEffect(() => {
@@ -83,6 +101,10 @@ export default function ProductPageClient({
             data,
           );
 
+          setSelectedVariant(
+            null,
+          );
+
         }
 
       } catch (error) {
@@ -114,33 +136,77 @@ export default function ProductPageClient({
 
   return (
 
-    <>
+    <div
+      className="
+        grid
+        grid-cols-1
+        lg:grid-cols-[560px_minmax(0,1fr)]
+        lg:items-start
+      "
+    >
 
-      <div
+      <aside
         className="
           flex
           flex-col
-          gap-10
-          sticky
-          top-24
+          gap-8
+          lg:sticky
+          lg:top-24
         "
       >
 
         <ProductHero
           product={product}
+          selectedVariant={selectedVariant}
         />
 
-        <DetailsRelatedProducts
+        <ProductVariants
+          product={product}
+          selectedVariant={selectedVariant}
+          onVariantChange={setSelectedVariant}
+        />
+
+        <div
+          className="
+            hidden
+            lg:block
+          "
+        >
+
+          <DetailsRelatedProducts
+            product={product}
+          />
+
+        </div>
+
+      </aside>
+
+      <section
+        className="
+          min-w-0
+        "
+      >
+
+        <ProductDetails
           product={product}
         />
 
-      </div>
+        <div
+          className="
+            mt-12
+            lg:hidden
+          "
+        >
 
-      <ProductDetails
-        product={product}
-      />
+          <DetailsRelatedProducts
+            product={product}
+          />
 
-    </>
+        </div>
+
+      </section>
+
+    </div>
 
   );
 

@@ -76,7 +76,7 @@ export default function RootLayout({
         </AppProvider>
 
         <WhatsAppButton
-          phone="573001234567"
+          phone="573022016072"
           message="Hola, me gustaría obtener más información."
         />
       </body>

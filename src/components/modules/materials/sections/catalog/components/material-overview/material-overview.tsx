@@ -48,8 +48,9 @@ export default function MaterialOverview() {
   return (
 
     <Card
+    variant="featured"
       className="
-        p-5
+        p-2
         sm:p-6
         xl:p-8
       "
@@ -66,11 +67,18 @@ export default function MaterialOverview() {
 
         <div
           className="
-            relative
-            aspect-square
-            overflow-hidden
-            rounded-xl
-          "
+    relative
+    mx-auto
+    w-full
+    max-w-sm
+    h-80
+    sm:h-96
+    md:h-105
+    lg:h-115
+    xl:h-105
+    overflow-hidden
+    rounded-xl
+  "
         >
 
           <Image
@@ -102,6 +110,7 @@ export default function MaterialOverview() {
           <header
             className="
               space-y-3
+              text-center
             "
           >
 
@@ -135,7 +144,7 @@ export default function MaterialOverview() {
                 className="
       leading-8
       text-text-muted
-      py-2
+      px-2
     "
               >
 

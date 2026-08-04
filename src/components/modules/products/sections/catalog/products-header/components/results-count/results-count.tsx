@@ -73,7 +73,7 @@ export default function ResultsCount({
           text-xs
         "
         style={{
-          color: "var(--color-text-muted)",
+          color: "var(--color-text-primary)",
         }}
       >
         {labels[lang]}

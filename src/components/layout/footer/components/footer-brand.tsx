@@ -18,8 +18,11 @@ export default function FooterBrand() {
         <Icon
           src={assetsConfig.logoSecondary}
           alt={companyConfig.name}
-          size="lg"
           variant="brand"
+          style={{
+            height: "65px",
+            width: "auto",
+          }}
         />
 
         <h2 className="text-xl font-bold">

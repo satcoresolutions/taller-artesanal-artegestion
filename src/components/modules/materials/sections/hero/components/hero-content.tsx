@@ -47,7 +47,7 @@ export default function HeroContent() {
         "
         style={{
           color:
-            "var(--tertiary)",
+            "var(--text-muted)",
         }}
       >
         {content.description}

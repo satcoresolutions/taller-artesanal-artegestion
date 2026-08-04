@@ -56,6 +56,14 @@ export const POPULATE = {
     section: true,
     materials: true,
 
+    variants: {
+      populate: {
+        cover: true,
+        gallery: true,
+      },
+    },
+
+
     relatedProducts: {
       populate: {
         cover: true,

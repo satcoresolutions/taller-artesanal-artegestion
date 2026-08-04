@@ -80,12 +80,12 @@ export default function DetailsRelatedProducts({
   }
 
   return (
-    <Section className="p-10">
-      <Card variant="outlined" className="p-8">
+    <Section className="px-10">
+      <Card variant="glass" className="p-8">
         <div className="flex flex-col gap-6">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h2>{content.title}</h2>
+              <h3>{content.title}</h3>
               <p
                 className="mt-2"
                 style={{ color: "var(--color-text-secondary)" }}

@@ -1,6 +1,7 @@
-import type {
-  ActionLink,
-} from "@/components/ui/nav-link";
+export interface HeroAction {
+  label: string;
+  href: string;
+}
 
 export interface HeroContent {
   badge: string;
@@ -9,6 +10,9 @@ export interface HeroContent {
 
   description: string;
 
-
   features: string[];
+
+  primaryAction: HeroAction;
+
+  secondaryAction: HeroAction;
 }

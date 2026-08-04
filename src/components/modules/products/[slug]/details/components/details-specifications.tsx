@@ -48,7 +48,7 @@ export default function DetailsSpecifications({
   return (
 
     <Card
-      variant="outlined"
+      variant="featured"
       className="
         p-8
       "
@@ -64,11 +64,11 @@ export default function DetailsSpecifications({
 
         <div>
 
-          <h2>
+          <h3>
 
             {content.title}
 
-          </h2>
+          </h3>
 
           <p
             className="
@@ -76,7 +76,7 @@ export default function DetailsSpecifications({
             "
             style={{
               color:
-                "var(--color-text-muted)",
+                "var(--color-text-primary)",
             }}
           >
 
@@ -113,7 +113,8 @@ export default function DetailsSpecifications({
                 style={{
 
                   background:
-                    "var(--color-surface-secondary)",
+                    "var(--color-surface)",
+                    
 
                   border:
                     "1px solid var(--color-border)",
@@ -130,7 +131,7 @@ export default function DetailsSpecifications({
                   "
                   style={{
                     color:
-                      "var(--color-text-muted)",
+                      "var(--color-primary)",
                   }}
                 >
 

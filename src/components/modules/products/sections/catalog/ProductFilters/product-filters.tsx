@@ -47,9 +47,12 @@ export default function ProductFilters({
           >
             <h5
               className="
-                mb-3
-                font-medium
-              "
+    mb-3
+    font-medium
+  "
+              style={{
+                color: "var(--color-primary)",
+              }}
             >
               {group.title}
             </h5>

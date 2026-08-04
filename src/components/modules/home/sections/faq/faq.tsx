@@ -14,8 +14,6 @@ export default function FAQ() {
   return (
     <Section
       id="faq"
-      spacing="xl"
-      className="m-10"
     >
       <Container>
         <div

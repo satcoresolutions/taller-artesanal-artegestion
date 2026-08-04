@@ -54,19 +54,22 @@ export default function ProductCard({
     <Card
       variant="outlined"
       className="
-        overflow-hidden
-        transition-all
-        duration-300
-        hover:-translate-y-1
-      "
+    flex
+    h-full
+    flex-col
+    overflow-hidden
+    transition-all
+    duration-300
+    hover:-translate-y-1
+  "
     >
 
       <div
         className="
-          relative
-          aspect-square
-          overflow-hidden
-        "
+      relative
+      aspect-square
+      overflow-hidden
+    "
       >
 
         {product.cover && (
@@ -76,11 +79,11 @@ export default function ProductCard({
             src={getStrapiMedia(product.cover.url)}
             alt={product.cover.alternativeText ?? product.title}
             className="
-    object-cover
-    transition-transform
-    duration-500
-    hover:scale-105
-  "
+          object-cover
+          transition-transform
+          duration-500
+          hover:scale-105
+        "
           />
 
         )}
@@ -89,21 +92,23 @@ export default function ProductCard({
 
       <div
         className="
-          p-5
-        "
+      flex
+      flex-1
+      flex-col
+      p-5
+    "
       >
 
         {product.category && (
 
           <span
             className="
-              text-xs
-              uppercase
-              tracking-wide
-            "
+          text-xs
+          uppercase
+          tracking-wide
+        "
             style={{
-              color:
-                "var(--color-text-muted)",
+              color: "var(--color-primary)",
             }}
           >
 
@@ -115,10 +120,10 @@ export default function ProductCard({
 
         <h3
           className="
-            mt-2
-            text-lg
-            font-semibold
-          "
+        mt-2
+        text-lg
+        font-semibold
+      "
         >
 
           {product.title}
@@ -129,13 +134,12 @@ export default function ProductCard({
 
           <p
             className="
-              mt-3
-              line-clamp-2
-              text-sm
-            "
+          mt-3
+          line-clamp-2
+          text-sm
+        "
             style={{
-              color:
-                "var(--color-text-muted)",
+              color: "var(--color-muted)",
             }}
           >
 
@@ -149,47 +153,29 @@ export default function ProductCard({
 
           <p
             className="
-              mt-4
-              text-base
-              font-semibold
-            "
+          mt-4
+          text-base
+          font-semibold
+        "
           >
 
             {product.priceCop != null
-
               ? new Intl.NumberFormat(
-
                 "es-CO",
-
                 {
-
                   style: "currency",
-
                   currency: "COP",
-
                   maximumFractionDigits: 0,
-
                 },
-
-              ).format(
-                product.priceCop,
-              )
-
+              ).format(product.priceCop)
               : new Intl.NumberFormat(
-
                 "en-US",
-
                 {
-
                   style: "currency",
-
                   currency: "USD",
-
                 },
-
-              ).format(
-                product.priceUsd!,
-              )}
+              ).format(product.priceUsd!)
+            }
 
           </p>
 
@@ -197,19 +183,22 @@ export default function ProductCard({
 
         <div
           className="
-    mt-5
-    flex
-    justify-end
-  "
+        mt-auto
+        pt-5
+        flex
+        justify-end
+        text-primary
+      "
         >
 
           <Link
             href={`/products/${product.slug}`}
             className="
-      inline-flex
-      text-sm
-      font-medium
-    "
+          text-sm
+          font-medium
+          uppercase
+          tracking-wide
+        "
           >
 
             {content.viewDetails}

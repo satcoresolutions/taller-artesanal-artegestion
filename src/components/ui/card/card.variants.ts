@@ -9,7 +9,7 @@ export const cardVariants = {
 
   outlined: {
     background:
-      "var(--color-surface)",
+      "var(--color-quaternary)",
 
     border: `
     1px solid

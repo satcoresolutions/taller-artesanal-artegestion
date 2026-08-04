@@ -42,25 +42,15 @@ export default async function ProductPage({
 
     <main
       className="
-        container
-        py-20
-      "
+    container
+    py-20
+  "
     >
 
-      <div
-        className="
-          grid
-          lg:grid-cols-[600px_1fr]
-          lg:items-start
-        "
-      >
-
-        <ProductPageClient
-          initialProduct={product}
-          slug={slug}
-        />
-
-      </div>
+      <ProductPageClient
+        initialProduct={product}
+        slug={slug}
+      />
 
     </main>
 

@@ -190,6 +190,8 @@ export interface ProductData {
 
   seo: SEO[];
 
+  variants: ProductVariant[];
+
   /* ---------------------------------------------------------------------- */
   /* Relations                                                              */
   /* ---------------------------------------------------------------------- */
@@ -203,5 +205,27 @@ export interface ProductData {
   relatedProducts: ProductData[];
 
   relatedTo: ProductData[];
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  VARIANT                                   */
+/* -------------------------------------------------------------------------- */
+
+export interface ProductVariant {
+
+  id: number;
+
+  variant: string;
+
+  cover: Media | null;
+
+  gallery: Media[];
+
+  stock: number;
+
+  sortOrder?: number;
+
+  active: boolean;
 
 }

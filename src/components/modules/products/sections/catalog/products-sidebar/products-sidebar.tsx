@@ -17,7 +17,7 @@ export default function ProductsSidebar({
       "
     >
       <Card
-        variant="glass"
+        variant="premium"
         className="
           sticky
           top-24

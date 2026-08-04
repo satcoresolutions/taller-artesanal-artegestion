@@ -18,7 +18,7 @@ export default function HeroContent() {
         {content.title}
       </h1>
 
-      <p className="pt-5 max-w-xl text-balance" style={{ color: "var(--accent)" }}>
+      <p className="pt-5 max-w-xl text-balance" style={{ color: "var(--text-muted)" }}>
         {content.description}
       </p>
     </div>

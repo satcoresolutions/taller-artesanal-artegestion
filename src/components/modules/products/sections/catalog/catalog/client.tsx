@@ -70,11 +70,12 @@ export default function CatalogClient({
 
     <div
       className="
-        mt-10
-        grid
-        gap-12
-        lg:grid-cols-[320px_1fr]
-      "
+      mt-10
+    grid
+    items-start
+    gap-10
+    xl:grid-cols-[300px_minmax(0,1fr)]
+  "
     >
 
       <ProductsSidebar>
@@ -94,7 +95,7 @@ export default function CatalogClient({
 
       <ProductsContent>
 
-        <div className="px-10">
+        <div className="">
 
           <ProductsHeader
             count={filteredProducts.length}

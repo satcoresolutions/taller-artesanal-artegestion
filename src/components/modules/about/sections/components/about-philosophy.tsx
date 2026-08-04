@@ -97,7 +97,7 @@ export default function AboutPhilosophy() {
 
             <Card
               key={card.title}
-              variant="outlined"
+              variant="glass"
               className="
                 h-full
                 p-8

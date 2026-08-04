@@ -23,7 +23,7 @@ export default function AboutStory() {
       <Container>
 
         <Card
-          variant="outlined"
+          variant="premium"
           className="
             p-10
             md:p-14

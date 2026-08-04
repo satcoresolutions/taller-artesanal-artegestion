@@ -14,7 +14,7 @@ export default function CTACard() {
 
   return (
     <Card
-      variant="glass"
+      variant="outlined"
       className="
         mt-8
         p-4
@@ -23,7 +23,7 @@ export default function CTACard() {
       <p
         className="text-sm"
         style={{
-          color: "var(--text-muted)",
+          color: "var(--text-primary)",
         }}
       >
         {content.microcopy}

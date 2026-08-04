@@ -33,7 +33,7 @@ export default function CTA() {
           }}
         >
           <Card
-            variant="glass"
+            variant="premium"
             className="
               px-8
               py-16

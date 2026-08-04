@@ -6,13 +6,13 @@
  */
 
 --primary:
-  #FF3B3B;
+  #FF0000;
 
 --secondary:
   #AF0404;
 
 --accent:
-  #FFFFFF;
+  #252525;
 
 --tertiary:
   #C7C7C7;
@@ -48,7 +48,7 @@
   #D8D8D8;
 
 --text-muted:
-  #A5A5A5;
+  #FFFFFF;
 
 /*
  |------------------------------------------------

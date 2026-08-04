@@ -47,6 +47,7 @@ export default function DetailsCTA({
         flex
         flex-col
         gap-3
+        text-text-muted
       "
     >
 
@@ -82,7 +83,7 @@ export default function DetailsCTA({
         "
         style={{
           color:
-            "var(--color-text-muted)",
+            "var(--color-text-secondary)",
         }}
       >
 

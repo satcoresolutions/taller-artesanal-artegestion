@@ -4,7 +4,7 @@ export const buttonVariants = {
       "var(--color-primary)",
 
     color:
-      "var(--color-surface)",
+      "var(--color-text-muted)",
   },
 
   secondary: {
@@ -77,6 +77,6 @@ export const buttonVariants = {
     `,
 
     color:
-      "var(--color-quaternary)",
+      "var(--color-text-muted)",
   },
 } as const;

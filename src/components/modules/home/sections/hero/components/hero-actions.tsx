@@ -5,23 +5,18 @@ import Button from "@/components/ui/button";
 import { Events }
   from "@/analytics/events";
 
-import {
-  ctaConfig,
-} from "@/config/cta.config";
+import type {
+  HeroContent,
+} from "../types/hero.types";
 
-interface HeroActionsProps {
-  primary: {
-    label: string;
-  };
-
-  secondary: {
-    label: string;
-  };
-}
+type HeroActionsProps = Pick<
+  HeroContent,
+  "primaryAction" | "secondaryAction"
+>;
 
 export default function HeroActions({
-  primary,
-  secondary,
+  primaryAction,
+  secondaryAction,
 }: HeroActionsProps) {
   return (
     <div
@@ -33,9 +28,7 @@ export default function HeroActions({
       "
     >
       <Button
-        href={
-          ctaConfig.hero.primaryAction.href
-        }
+        href={primaryAction.href}
         variant="gradient"
         onClick={() =>
           Events.ctaClick(
@@ -43,13 +36,11 @@ export default function HeroActions({
           )
         }
       >
-        {primary.label}
+        {primaryAction.label}
       </Button>
 
       <Button
-        href={
-          ctaConfig.hero.secondaryAction.href
-        }
+        href={secondaryAction.href}
         variant="primary"
         onClick={() =>
           Events.ctaClick(
@@ -57,7 +48,7 @@ export default function HeroActions({
           )
         }
       >
-        {secondary.label}
+        {secondaryAction.label}
       </Button>
     </div>
   );

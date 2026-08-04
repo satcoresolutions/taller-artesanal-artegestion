@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -13,6 +14,7 @@ import HeroGallery
 
 import type {
   ProductData,
+  ProductVariant,
 } from "@/types/product.types";
 
 import type {
@@ -20,27 +22,36 @@ import type {
 } from "@/types/media.types";
 
 interface ProductHeroProps {
-
   product: ProductData;
-
+  selectedVariant: ProductVariant | null;
 }
 
 export default function ProductHero({
 
   product,
+  selectedVariant,
 
 }: ProductHeroProps) {
 
   const images =
     useMemo(() => {
 
+      const cover =
+        selectedVariant?.cover ??
+        product.cover;
+
+      const gallery =
+        selectedVariant?.gallery?.length
+          ? selectedVariant.gallery
+          : product.gallery;
+
       const allImages = [
 
-        ...(product.cover
-          ? [product.cover]
+        ...(cover
+          ? [cover]
           : []),
 
-        ...(product.gallery ?? []),
+        ...(gallery ?? []),
 
       ];
 
@@ -59,8 +70,8 @@ export default function ProductHero({
     }, [
 
       product.cover,
-
       product.gallery,
+      selectedVariant,
 
     ]);
 
@@ -76,29 +87,50 @@ export default function ProductHero({
 
   );
 
+  useEffect(() => {
+
+    setActiveImage(
+      images[0] ?? null,
+    );
+
+  }, [
+
+    images,
+
+  ]);
+
   return (
 
     <section
       className="
-        container
-        p-10
-      "
+      container
+      px-6
+      lg:p-10
+    "
     >
 
       <div
         className="
-          flex
-          flex-col
-          items-center
-          gap-8
-        "
+        flex
+        flex-col
+        items-center
+        gap-6
+      "
       >
 
         <div
           className="
-            w-full
-            max-w-xl
-          "
+          w-full
+          max-w-xl
+          rounded-2xl
+          border
+          bg-white
+          overflow-hidden
+
+          h-105
+          sm:h-130
+          lg:h-155
+        "
         >
 
           <HeroImage
