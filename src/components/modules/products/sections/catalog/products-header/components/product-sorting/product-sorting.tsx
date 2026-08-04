@@ -52,7 +52,7 @@ export default function ProductSorting({
           tracking-wide
         "
         style={{
-          color: "var(--color-text-muted)",
+          color: "var(--color-text-primary)",
         }}
       >
         {content.label}
