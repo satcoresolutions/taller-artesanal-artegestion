@@ -120,24 +120,26 @@ export default function ProductHero({
 
         <div
           className="
-          w-full
-          max-w-xl
-          rounded-2xl
-          border
-          bg-white
-          overflow-hidden
+        flex
+        w-full
+        max-w-xl
+        items-center
+        justify-center
 
-          h-105
-          sm:h-130
-          lg:h-155
-        "
+        overflow-hidden
+        rounded-2xl
+        border
+        bg-white
+
+        h-105
+        sm:h-130
+        lg:h-155
+    "
         >
-
           <HeroImage
             image={activeImage}
             alt={product.title}
           />
-
         </div>
 
         <HeroGallery

@@ -12,8 +12,11 @@ import {
   buildQuery,
 } from "@/lib/api/query";
 
+
 export async function getProducts(
   locale = "es",
+  page = 1,
+  pageSize = 100,
 ) {
 
   const response =
@@ -29,10 +32,9 @@ export async function getProducts(
 
           pagination: {
 
-            page: 1,
+            page,
 
-            pageSize:
-              1000,
+            pageSize,
 
           },
 
@@ -43,6 +45,88 @@ export async function getProducts(
   return response.data;
 
 }
+
+
+export async function getAllProductsFromRepository(
+  locale = "es",
+  pageSize = 100,
+) {
+
+  const firstResponse =
+    await getProducts(
+      locale,
+      1,
+      pageSize,
+    );
+
+  const allProducts = [
+    ...firstResponse.data,
+  ];
+
+  const pagination =
+    firstResponse.meta.pagination;
+
+  const totalPages =
+    pagination.pageCount;
+
+  if (totalPages <= 1) {
+
+    return {
+      data: allProducts,
+      meta: firstResponse.meta,
+    };
+
+  }
+
+  for (
+    let page = 2;
+    page <= totalPages;
+    page++
+  ) {
+
+    const response =
+      await getProducts(
+        locale,
+        page,
+        pageSize,
+      );
+
+    allProducts.push(
+      ...response.data,
+    );
+
+  }
+
+  return {
+
+    data: allProducts,
+
+    meta: {
+
+      ...firstResponse.meta,
+
+      pagination: {
+
+        ...pagination,
+
+        page: 1,
+
+        pageSize:
+          allProducts.length,
+
+        pageCount: 1,
+
+        total:
+          allProducts.length,
+
+      },
+
+    },
+
+  };
+
+}
+
 
 export async function getProductBySlug(
   slug: string,
@@ -78,6 +162,7 @@ export async function getProductBySlug(
 
 }
 
+
 export async function getProductByDocumentId(
   documentId: string,
   locale = "es",
@@ -102,7 +187,7 @@ export async function getProductByDocumentId(
           },
 
           populate:
-            POPULATE.productDetail
+            POPULATE.productDetail,
 
         }),
       },

@@ -1,138 +1,157 @@
 export const catalogContent = {
+    en: {
+        filters: {
+            categories: {
+                title: "Categories",
+            },
 
-  en: {
+            materials: {
+                title: "Materials",
+            },
 
-    filters: {
+            availability: {
+                title: "Availability",
 
-      categories: {
-        title: "Categories",
-      },
+                options: {
+                    made_to_order: "Made to Order",
+                    one_of_a_kind: "One of a Kind",
+                    coming_soon: "Coming Soon",
+                    discontinued: "Discontinued",
+                },
+            },
 
-      materials: {
-        title: "Materials",
-      },
+            stock: {
+                title: "Inventory",
 
-      availability: {
-        title: "Availability",
+                options: {
+                    in_stock: "In Stock",
+                    out_of_stock: "Out of Stock",
+                },
+            },
 
-        options: {
-          in_stock: "In Stock",
-          made_to_order: "Made to Order",
+            collection: {
+                title: "Collection",
+
+                options: {
+                    featured: "Featured",
+                    newArrival: "New Arrivals",
+                    bestSeller: "Best Sellers",
+                },
+            },
+
+            price: {
+                title: "Price",
+
+                options: {
+                    under50: "Under $50,000",
+                    between50and100: "$50,000 - $100,000",
+                    over100: "Over $100,000",
+                },
+            },
         },
-      },
-
-      collection: {
-        title: "Collection",
-
-        options: {
-          featured: "Featured",
-          newArrival: "New Arrivals",
-          bestSeller: "Best Sellers",
-        },
-      },
-
-      price: {
-        title: "Price",
-
-        options: {
-          under50: "Under $50,000",
-          between50and100: "$50,000 - $100,000",
-          over100: "Over $100,000",
-        },
-      },
-
     },
 
-  },
+    es: {
+        filters: {
+            categories: {
+                title: "Categorías",
+            },
 
-  es: {
+            materials: {
+                title: "Materiales",
+            },
 
-    filters: {
+            availability: {
+                title: "Disponibilidad",
 
-      categories: {
-        title: "Categorías",
-      },
+                options: {
+                    made_to_order: "Bajo pedido",
+                    one_of_a_kind: "Pieza única",
+                    coming_soon: "Próximamente",
+                    discontinued: "Descontinuado",
+                },
+            },
 
-      materials: {
-        title: "Materiales",
-      },
+            stock: {
+                title: "Inventario",
 
-      availability: {
-        title: "Disponibilidad",
+                options: {
+                    in_stock: "En stock",
+                    out_of_stock: "Agotado",
+                },
+            },
 
-        options: {
-          in_stock: "En stock",
-          made_to_order: "Bajo pedido",
+            collection: {
+                title: "Colección",
+
+                options: {
+                    featured: "Destacados",
+                    newArrival: "Nuevos",
+                    bestSeller: "Más vendidos",
+                },
+            },
+
+            price: {
+                title: "Precio",
+
+                options: {
+                    under50: "Menos de $50.000",
+                    between50and100: "$50.000 - $100.000",
+                    over100: "Más de $100.000",
+                },
+            },
         },
-      },
-
-      collection: {
-        title: "Colección",
-
-        options: {
-          featured: "Destacados",
-          newArrival: "Nuevos",
-          bestSeller: "Más vendidos",
-        },
-      },
-
-      price: {
-        title: "Precio",
-
-        options: {
-          under50: "Menos de $50.000",
-          between50and100: "$50.000 - $100.000",
-          over100: "Más de $100.000",
-        },
-      },
-
     },
 
-  },
+    pt: {
+        filters: {
+            categories: {
+                title: "Categorias",
+            },
 
-  pt: {
+            materials: {
+                title: "Materiais",
+            },
 
-    filters: {
+            availability: {
+                title: "Disponibilidade",
 
-      categories: {
-        title: "Categorias",
-      },
+                options: {
+                    made_to_order: "Sob encomenda",
+                    one_of_a_kind: "Peça única",
+                    coming_soon: "Em breve",
+                    discontinued: "Descontinuado",
+                },
+            },
 
-      materials: {
-        title: "Materiais",
-      },
+            stock: {
+                title: "Estoque",
 
-      availability: {
-        title: "Disponibilidade",
+                options: {
+                    in_stock: "Em estoque",
+                    out_of_stock: "Esgotado",
+                },
+            },
 
-        options: {
-          in_stock: "Em estoque",
-          made_to_order: "Sob encomenda",
+            collection: {
+                title: "Coleção",
+
+                options: {
+                    featured: "Destaques",
+                    newArrival: "Novidades",
+                    bestSeller: "Mais vendidos",
+                },
+            },
+
+            price: {
+                title: "Preço",
+
+                options: {
+                    under50: "Menos de $50.000",
+                    between50and100: "$50.000 - $100.000",
+                    over100: "Mais de $100.000",
+                },
+            },
         },
-      },
-
-      collection: {
-        title: "Coleção",
-
-        options: {
-          featured: "Destaques",
-          newArrival: "Novidades",
-          bestSeller: "Mais vendidos",
-        },
-      },
-
-      price: {
-        title: "Preço",
-
-        options: {
-          under50: "Menos de $50.000",
-          between50and100: "$50.000 - $100.000",
-          over100: "Mais de $100.000",
-        },
-      },
-
     },
-
-  },
-
 } as const;

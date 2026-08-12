@@ -18,6 +18,7 @@ import type {
   SEO,
 } from "./seo.types";
 
+
 /* -------------------------------------------------------------------------- */
 /*                                    ENUMS                                   */
 /* -------------------------------------------------------------------------- */
@@ -29,12 +30,18 @@ export type ProductType =
   | "souvenir"
   | "other";
 
+
 export type ProductAvailability =
-  | "in_stock"
   | "made_to_order"
   | "one_of_a_kind"
   | "coming_soon"
   | "discontinued";
+
+
+export type ProductStockFilter =
+  | "in_stock"
+  | "out_of_stock";
+
 
 /* -------------------------------------------------------------------------- */
 /*                              RELATED ENTITIES                              */
@@ -53,7 +60,6 @@ export interface ProductCategoryData {
 }
 
 
-
 export interface ProductSectionData {
 
   id: number;
@@ -66,11 +72,13 @@ export interface ProductSectionData {
 
 }
 
+
 /* -------------------------------------------------------------------------- */
 /*                                  PRODUCT                                   */
 /* -------------------------------------------------------------------------- */
 
 export interface ProductData {
+
 
   /* ---------------------------------------------------------------------- */
   /* Identity                                                               */
@@ -88,6 +96,7 @@ export interface ProductData {
 
   slug: string;
 
+
   /* ---------------------------------------------------------------------- */
   /* Content                                                                */
   /* ---------------------------------------------------------------------- */
@@ -100,6 +109,7 @@ export interface ProductData {
 
   description: unknown;
 
+
   /* ---------------------------------------------------------------------- */
   /* Media                                                                  */
   /* ---------------------------------------------------------------------- */
@@ -107,6 +117,7 @@ export interface ProductData {
   cover: Media | null;
 
   gallery: Media[];
+
 
   /* ---------------------------------------------------------------------- */
   /* Physical Dimensions                                                    */
@@ -119,6 +130,7 @@ export interface ProductData {
   height?: number;
 
   weight?: number;
+
 
   /* ---------------------------------------------------------------------- */
   /* Pricing                                                                */
@@ -134,6 +146,7 @@ export interface ProductData {
 
   cost?: number;
 
+
   /* ---------------------------------------------------------------------- */
   /* Inventory                                                              */
   /* ---------------------------------------------------------------------- */
@@ -146,67 +159,92 @@ export interface ProductData {
 
   minStock?: number;
 
+
   /* ---------------------------------------------------------------------- */
   /* Commercial                                                             */
   /* ---------------------------------------------------------------------- */
 
-  availability: ProductAvailability;
+  availability:
+  ProductAvailability;
 
-  allowBackorders: boolean;
+  allowBackorders:
+  boolean;
 
   productionDays?: number;
 
-  canReproduce: boolean;
+  canReproduce:
+  boolean;
 
   craftYear?: number;
+
 
   /* ---------------------------------------------------------------------- */
   /* Visibility                                                             */
   /* ---------------------------------------------------------------------- */
 
-  visibleStore: boolean;
+  visibleStore:
+  boolean;
 
-  visibleGallery: boolean;
+  visibleGallery:
+  boolean;
 
-  featured: boolean;
+  featured:
+  boolean;
 
-  newArrival: boolean;
+  newArrival:
+  boolean;
 
-  bestSeller: boolean;
+  bestSeller:
+  boolean;
 
-  customizable: boolean;
+  customizable:
+  boolean;
 
-  sortOrder: number;
+  sortOrder:
+  number;
 
-  published: boolean;
+  published:
+  boolean;
+
 
   /* ---------------------------------------------------------------------- */
   /* Shared Components                                                      */
   /* ---------------------------------------------------------------------- */
 
-  properties: Property[];
+  properties:
+  Property[];
 
-  sections: ContentSection[];
+  sections:
+  ContentSection[];
 
-  seo: SEO[];
+  seo:
+  SEO[];
 
-  variants: ProductVariant[];
+  variants:
+  ProductVariant[];
+
 
   /* ---------------------------------------------------------------------- */
   /* Relations                                                              */
   /* ---------------------------------------------------------------------- */
 
-  materials: MaterialData[];
+  materials:
+  MaterialData[];
 
-  category: ProductCategoryData | null;
+  category:
+  ProductCategoryData | null;
 
-  section: ProductSectionData | null;
+  section:
+  ProductSectionData | null;
 
-  relatedProducts: ProductData[];
+  relatedProducts:
+  ProductData[];
 
-  relatedTo: ProductData[];
+  relatedTo:
+  ProductData[];
 
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  VARIANT                                   */
@@ -218,14 +256,18 @@ export interface ProductVariant {
 
   variant: string;
 
-  cover: Media | null;
+  cover:
+  Media | null;
 
-  gallery: Media[];
+  gallery:
+  Media[];
 
-  stock: number;
+  stock:
+  number;
 
   sortOrder?: number;
 
-  active: boolean;
+  active:
+  boolean;
 
 }

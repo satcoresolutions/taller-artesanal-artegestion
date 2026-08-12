@@ -212,13 +212,13 @@ export default function DetailsHeader({
 
               <p
                 className="
-        mt-1
-        font-black
-        leading-none
-        tracking-tight
-      "
+    mt-1
+    font-black
+    leading-none
+    tracking-tight
+  "
                 style={{
-                  fontSize: "3rem",
+                  fontSize: "clamp(1.8rem, 6vw, 3rem)",
                   lineHeight: "0.95",
                   color: "var(--primary)",
                 }}

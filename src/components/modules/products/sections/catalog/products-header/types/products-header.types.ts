@@ -1,9 +1,15 @@
 export interface ProductsHeaderProps {
-  count: number;
+    count: number;
 
-  sorting: string;
+    sorting: string;
 
-  onSortingChange: (
-    value: string
-  ) => void;
+    onSortingChange: (
+        value: string
+    ) => void;
+
+    search: string;
+
+    onSearchChange: (
+        value: string
+    ) => void;
 }

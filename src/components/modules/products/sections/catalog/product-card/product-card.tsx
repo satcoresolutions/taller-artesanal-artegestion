@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Card from "@/components/ui/card";
+import Badge from "@/components/ui/badge";
 
 import {
   useLanguage,
@@ -17,12 +18,13 @@ import type {
   ProductCardProps,
 } from "./types/product-card.types";
 
-import { getStrapiMedia } from "@/lib/utils/strapi";
+import {
+  getStrapiMedia,
+} from "@/lib/utils/strapi";
+
 
 export default function ProductCard({
-
   product,
-
 }: ProductCardProps) {
 
   const lang =
@@ -31,115 +33,166 @@ export default function ProductCard({
   const content =
     productCardContent[lang];
 
-
-  console.log("ProductCard:", product);
-
   const description =
-
     Array.isArray(product.description)
-
       ? product.description
-        .flatMap((block: any) =>
-
-          block.children?.map(
-            (child: any) => child.text,
-          ) ?? [],
+        .flatMap(
+          (block: any) =>
+            block.children?.map(
+              (child: any) =>
+                child.text,
+            ) ?? [],
         )
         .join(" ")
-
       : "";
+
+
+  const availableStock =
+    (product.stock ?? 0) -
+    (product.reserved ?? 0);
+
+  const isInStock =
+    availableStock > 0;
+
+
+  const availabilityLabel =
+    product.availability
+      ? content.availability[
+      product.availability
+      ]
+      : null;
+
 
   return (
 
     <Card
-      variant="outlined"
+      variant={
+        isInStock
+          ? "outlined"
+          : "featured"
+      }
       className="
-    flex
-    h-full
-    flex-col
-    overflow-hidden
-    transition-all
-    duration-300
-    hover:-translate-y-1
-  "
+        flex
+        h-full
+        flex-col
+        overflow-hidden
+        transition-all
+        duration-300
+        hover:-translate-y-1
+      "
     >
+
+      {/* Image */}
 
       <div
         className="
-      relative
-      aspect-square
-      overflow-hidden
-    "
+          relative
+          aspect-square
+          overflow-hidden
+        "
       >
 
         {product.cover && (
 
           <Image
             fill
-            src={getStrapiMedia(product.cover.url)}
-            alt={product.cover.alternativeText ?? product.title}
+            src={getStrapiMedia(
+              product.cover.url,
+            )}
+            alt={
+              product.cover
+                .alternativeText
+              ?? product.title
+            }
             className="
-          object-cover
-          transition-transform
-          duration-500
-          hover:scale-105
-        "
+              object-cover
+              transition-transform
+              duration-500
+              hover:scale-105
+            "
           />
 
         )}
 
-      </div>
 
-      <div
-        className="
-      flex
-      flex-1
-      flex-col
-      p-5
-    "
-      >
+        {/* Category Badge */}
 
         {product.category && (
 
-          <span
+          <div
             className="
-          text-xs
-          uppercase
-          tracking-wide
-        "
-            style={{
-              color: "var(--color-primary)",
-            }}
+              absolute
+              left-2
+              top-2
+              z-10
+            "
           >
 
-            {product.category.title}
+            <Badge variant="primary">
 
-          </span>
+              {product.category.title}
+
+            </Badge>
+
+          </div>
 
         )}
 
+
+        {/* Availability Badge */}
+
+        {availabilityLabel && (
+          <div
+            className="
+      absolute
+      bottom-2
+      right-2
+      z-10
+    "
+          >
+            <Badge variant="default">
+              {availabilityLabel}
+            </Badge>
+          </div>
+        )}
+
+      </div>
+
+
+      {/* Content */}
+
+      <div
+        className="
+          flex
+          flex-1
+          flex-col
+          p-5
+        "
+      >
+
         <h3
           className="
-        mt-2
-        text-lg
-        font-semibold
-      "
+            text-lg
+            font-semibold
+          "
         >
 
           {product.title}
 
         </h3>
 
+
         {description && (
 
           <p
             className="
-          mt-3
-          line-clamp-2
-          text-sm
-        "
+              mt-3
+              line-clamp-2
+              text-sm
+            "
             style={{
-              color: "var(--color-muted)",
+              color:
+                "var(--color-muted)",
             }}
           >
 
@@ -149,56 +202,66 @@ export default function ProductCard({
 
         )}
 
-        {(product.priceCop ?? product.priceUsd) != null && (
 
-          <p
-            className="
-          mt-4
-          text-base
-          font-semibold
-        "
-          >
+        {(product.priceCop ??
+          product.priceUsd) != null && (
 
-            {product.priceCop != null
-              ? new Intl.NumberFormat(
-                "es-CO",
-                {
-                  style: "currency",
-                  currency: "COP",
-                  maximumFractionDigits: 0,
-                },
-              ).format(product.priceCop)
-              : new Intl.NumberFormat(
-                "en-US",
-                {
-                  style: "currency",
-                  currency: "USD",
-                },
-              ).format(product.priceUsd!)
-            }
+            <p
+              className="
+              mt-4
+              text-base
+              font-semibold
+            "
+            >
 
-          </p>
+              {product.priceCop != null
 
-        )}
+                ? new Intl.NumberFormat(
+                  "es-CO",
+                  {
+                    style: "currency",
+                    currency: "COP",
+                    maximumFractionDigits: 0,
+                  },
+                ).format(
+                  product.priceCop,
+                )
+
+                : new Intl.NumberFormat(
+                  "en-US",
+                  {
+                    style: "currency",
+                    currency: "USD",
+                  },
+                ).format(
+                  product.priceUsd!,
+                )
+
+              }
+
+            </p>
+
+          )}
+
 
         <div
           className="
-        mt-auto
-        pt-5
-        flex
-        justify-end
-        text-primary
-      "
+            mt-auto
+            flex
+            justify-end
+            pt-5
+            text-primary
+          "
         >
 
           <Link
             href={`/products/${product.slug}`}
             className="
-          text-sm
-          font-medium
-          uppercase
-          tracking-wide
-        "
+              text-sm
+              font-medium
+              uppercase
+              tracking-wide
+            "
           >
 
             {content.viewDetails}

@@ -17,6 +17,7 @@ export default function ProductFilters({
   selectedFilters,
   onFilterChange,
 }: ProductFiltersProps) {
+
   const lang =
     useLanguage();
 
@@ -28,30 +29,35 @@ export default function ProductFilters({
       className="
         flex
         flex-col
-        gap-8
+        gap-4
       "
     >
+
       <h4
         className="
           text-lg
           font-medium
+          text-center
         "
       >
         {content.title}
       </h4>
 
       {groups.map(
-        (group) => (
+        group => (
+
           <div
             key={group.id}
           >
+
             <h5
               className="
-    mb-3
-    font-medium
-  "
+                mb-3
+                font-medium
+              "
               style={{
-                color: "var(--color-primary)",
+                color:
+                  "var(--color-primary)",
               }}
             >
               {group.title}
@@ -64,40 +70,60 @@ export default function ProductFilters({
                 gap-2
               "
             >
-              {group.options.map(
-                (option) => (
-                  <label
-                    key={option.id}
-                    className="
-                      flex
-                      items-center
-                      gap-2
-                    "
-                  >
-                    <input
-                      type="checkbox"
-                      checked={
-                        selectedFilters.includes(
-                          option.id
-                        )
-                      }
-                      onChange={() =>
-                        onFilterChange(
-                          option.id
-                        )
-                      }
-                    />
 
-                    <span>
-                      {option.label}
-                    </span>
-                  </label>
-                )
+              {group.options.map(
+                option => {
+
+                  const groupFilters =
+                    selectedFilters[
+                    group.id
+                    ] ?? [];
+
+                  const isSelected =
+                    groupFilters.some(
+                      filterId =>
+                        filterId === option.id,
+                    );
+
+                  return (
+                    <label
+                      key={option.id}
+                      className="
+          flex
+          items-center
+          gap-2
+        "
+                    >
+
+                      <input
+                        type="checkbox"
+                        checked={
+                          isSelected
+                        }
+                        onChange={() =>
+                          onFilterChange(
+                            group.id,
+                            option.id,
+                          )
+                        }
+                      />
+
+                      <span>
+                        {option.label}
+                      </span>
+
+                    </label>
+                  );
+                },
               )}
+
             </div>
+
           </div>
-        )
+
+        ),
       )}
+
     </div>
   );
 }

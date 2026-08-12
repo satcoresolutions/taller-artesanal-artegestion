@@ -1,34 +1,40 @@
+"use client";
+
 import ResultsCount
   from "./components/results-count";
 
 import ProductSorting
   from "./components/product-sorting";
 
+import ProductSearch
+  from "../ProductSearch";
+
 import type {
   ProductsHeaderProps,
 } from "./types/products-header.types";
+
 
 export default function ProductsHeader({
   count,
   sorting,
   onSortingChange,
+  search,
+  onSearchChange,
 }: ProductsHeaderProps) {
+
   return (
     <div
       className="
-        mb-8
-        flex
-        flex-col
-        gap-4
+                mb-8
+                flex
+                flex-col
+            
 
-        sm:flex-row
-        sm:items-center
-        sm:justify-between
-      "
+                sm:flex-row
+                sm:items-center
+                sm:justify-between
+            "
     >
-      <ResultsCount
-        count={count}
-      />
 
       <ProductSorting
         value={sorting}
@@ -36,6 +42,16 @@ export default function ProductsHeader({
           onSortingChange
         }
       />
+
+      <ProductSearch
+        value={search}
+        onChange={onSearchChange}
+      />
+
+      <ResultsCount
+        count={count}
+      />
+
     </div>
   );
 }

@@ -6,9 +6,6 @@ import useProductsCatalog
 import ProductsSidebar
   from "../products-sidebar/products-sidebar";
 
-import ProductSearch
-  from "../ProductSearch";
-
 import ProductFilters
   from "../ProductFilters";
 
@@ -29,84 +26,69 @@ import type {
 } from "@/types/product.types";
 
 interface CatalogClientProps {
-
   products: ProductData[];
-
 }
 
 export default function CatalogClient({
-
   products,
-
 }: CatalogClientProps) {
 
-  const {
-
-    search,
-    setSearch,
-
-    sorting,
-    setSorting,
-
-    selectedFilters,
-    handleFilterChange,
-
-    filterGroups,
-
-    filteredProducts,
-    paginatedProducts,
-
-    currentPage,
-    totalPages,
-    setCurrentPage,
-
-  } = useProductsCatalog({
-
-    products,
-
-  });
+  const catalog =
+    useProductsCatalog({
+      products,
+    });
 
   return (
-
     <div
       className="
-      mt-10
-    grid
-    items-start
-    gap-10
-    xl:grid-cols-[300px_minmax(0,1fr)]
-  "
+        mt-10
+        grid
+        items-start
+        gap-10
+        xl:grid-cols-[300px_minmax(0,1fr)]
+      "
     >
 
       <ProductsSidebar>
 
-        <ProductSearch
-          value={search}
-          onChange={setSearch}
-        />
+
 
         <ProductFilters
-          groups={filterGroups}
-          selectedFilters={selectedFilters}
-          onFilterChange={handleFilterChange}
+          groups={catalog.filterGroups}
+          selectedFilters={catalog.filters.filters}
+          onFilterChange={catalog.filters.handleFilterChange}
         />
 
       </ProductsSidebar>
 
       <ProductsContent>
 
-        <div className="">
+        <ProductsHeader
+          count={
+            catalog.filteredProducts.length
+          }
 
-          <ProductsHeader
-            count={filteredProducts.length}
-            sorting={sorting}
-            onSortingChange={setSorting}
-          />
+          sorting={
+            catalog.sorting.sorting
+          }
 
-        </div>
+          onSortingChange={
+            catalog.sorting.setSorting
+          }
+
+          search={
+            catalog.search.search
+          }
+
+          onSearchChange={
+            catalog.search.setSearch
+          }
+        />
 
         <ProductsGrid
-          products={paginatedProducts}
+          products={
+            catalog.paginatedProducts
+          }
         />
 
         <div
@@ -119,9 +101,15 @@ export default function CatalogClient({
 
           <Pagination
             variant="floating"
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
+            currentPage={
+              catalog.pagination.currentPage
+            }
+            totalPages={
+              catalog.pagination.totalPages
+            }
+            onPageChange={
+              catalog.pagination.setCurrentPage
+            }
           />
 
         </div>
@@ -129,7 +117,5 @@ export default function CatalogClient({
       </ProductsContent>
 
     </div>
-
   );
-
 }

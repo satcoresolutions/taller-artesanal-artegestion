@@ -1,5 +1,6 @@
 import {
   getProducts,
+  getAllProductsFromRepository,
   getProductBySlug as fetchProductBySlug,
   getProductByDocumentId as fetchProductByDocumentId,
 } from "@/lib/repositories/product.repository";
@@ -12,12 +13,82 @@ import type {
   ProductData,
 } from "@/types/product.types";
 
+
+interface ProductPagination {
+
+  page: number;
+
+  pageSize: number;
+
+  pageCount: number;
+
+  total: number;
+
+}
+
+
+interface PaginatedProducts {
+
+  products: ProductData[];
+
+  pagination: ProductPagination;
+
+}
+
+
+/**
+ * Productos paginados.
+ *
+ * Esta función se utiliza para el
+ * catálogo principal.
+ *
+ * La paginación se mantiene en Strapi.
+ */
+export async function getProductsPage(
+  locale = "es",
+  page = 1,
+  pageSize = 24,
+): Promise<PaginatedProducts> {
+
+  const response =
+    await getProducts(
+      locale,
+      page,
+      pageSize,
+    );
+
+  return {
+
+    products:
+      response.data.map(
+        (item: any) =>
+          mapProduct(item),
+      ),
+
+    pagination:
+      response.meta.pagination,
+
+  };
+
+}
+
+
+/**
+ * Obtiene todos los productos.
+ *
+ * El repository se encarga de realizar
+ * las peticiones necesarias para obtener
+ * todas las páginas de Strapi.
+ *
+ * Esto evita el límite de 100 productos
+ * por petición.
+ */
 export async function getAllProducts(
   locale = "es",
 ): Promise<ProductData[]> {
 
   const response =
-    await getProducts(
+    await getAllProductsFromRepository(
       locale,
     );
 
@@ -28,6 +99,10 @@ export async function getAllProducts(
 
 }
 
+
+/**
+ * Producto por slug.
+ */
 export async function getProductBySlug(
   slug: string,
   locale = "es",
@@ -54,6 +129,10 @@ export async function getProductBySlug(
 
 }
 
+
+/**
+ * Producto por documentId.
+ */
 export async function getProductByDocumentId(
   documentId: string,
   locale = "es",

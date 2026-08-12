@@ -21,23 +21,14 @@ export default async function FeaturedProducts() {
 
   const products =
     await getAllProducts();
-  console.log("TOTAL:", products.length);
 
-  console.log(
-    products.map((p) => ({
-      title: p.title,
-      featured: p.featured,
-    })),
-  );
   const featuredProducts =
-    products
-      .filter(
-        (product) => product.featured,
-      )
-      .slice(0, 4);
+    products.filter(
+      (product) =>
+        product.featured,
+    );
 
   return (
-
     <Section
       id="featured-products"
       spacing="xl"
@@ -57,7 +48,5 @@ export default async function FeaturedProducts() {
       </Container>
 
     </Section>
-
   );
-
 }

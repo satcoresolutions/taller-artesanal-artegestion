@@ -22,9 +22,6 @@ import {
 export function mapProduct(
     data: any,
 ): ProductData {
-    console.log("Producto:", data.title);
-    console.log("Variants:", data.variants);
-
     return {
 
 

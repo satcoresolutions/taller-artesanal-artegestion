@@ -20,7 +20,6 @@ import type {
 export async function getAllMaterials():
   Promise<MaterialData[]> {
 
-  console.log("SERVICE EJECUTADO");
   const response =
     await getMaterials();
 

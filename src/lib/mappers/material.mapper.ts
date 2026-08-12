@@ -11,8 +11,6 @@ export function mapMaterial(
   data: any,
 ): MaterialData {
 
-  console.log("MAP MATERIAL EJECUTADO");
-
   return  {
 
 

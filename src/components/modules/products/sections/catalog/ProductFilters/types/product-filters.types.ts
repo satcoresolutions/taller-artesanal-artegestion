@@ -1,23 +1,21 @@
-export interface FilterOption {
-  id: string;
+import type {
+  ProductFilterGroup,
+  ProductFilterGroupData,
+  ProductFilters,
+} from "../../catalog/types/catalog.types";
 
-  label: string;
-}
-
-export interface FilterGroup {
-  id: string;
-
-  title: string;
-
-  options: readonly FilterOption[];
-}
 
 export interface ProductFiltersProps {
-  groups: readonly FilterGroup[];
 
-  selectedFilters: string[];
+  groups:
+    ProductFilterGroupData[];
+
+  selectedFilters:
+    ProductFilters;
 
   onFilterChange: (
-    filterId: string
+    groupId: ProductFilterGroup,
+    filterId: string,
   ) => void;
+
 }
